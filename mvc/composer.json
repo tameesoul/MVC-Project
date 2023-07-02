@@ -1,0 +1,15 @@
+{
+    "name": "tamee/mvc",
+    "autoload": {
+        "classmap": [
+            "./"
+        ]
+    },
+    "authors": [
+        {
+            "name": "ahmed tamee",
+            "email": "tamerghazy@std.mans.edu.eg"
+        }
+    ],
+    "require": {}
+}
