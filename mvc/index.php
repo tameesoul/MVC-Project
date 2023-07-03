@@ -1,7 +1,5 @@
 <?php
+use core\Request;
 use core\Router;
 require "vendor/autoload.php";
-$router = new Router;
-require "app/routes.php";
-
-var_dump($router->routes);
+Router::load("app/routes.php")->direct(Request::filter_uri(),Request::lower_method());

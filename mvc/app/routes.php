@@ -1,3 +1,2 @@
 <?php 
-$router->get('home','PageController@home');
-//$router->post('home','PageController@home');
+$router->get('MVC-Project/mvc','PageController@home');
