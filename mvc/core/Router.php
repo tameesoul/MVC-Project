@@ -1,6 +1,5 @@
 <?php
 namespace core;
-//use app\controllers\PageController;
 class Router{
     public $routes = [
         'get'=>[
@@ -25,21 +24,23 @@ class Router{
             return $this->routes['post'][$uri]=$controller;
         }
 
-        public function direct($uri,$request_type){
-            if(array_key_exists($uri,$this->routes[$request_type])){
-                return $this->callaction(...explode("@", $this->routes[$request_type][$uri]));
+        public  function direct($uri,$requestMethodType)
+        {
+            if (array_key_exists($uri,$this->routes[$requestMethodType]))
+            {
+                return $this->callAction(...explode('@', $this->routes[$requestMethodType][$uri]));
             }
-            throw new \Exception("Not Fount URI");
-            
+            throw new \Exception('Invalid URI');
         }
-        public function callaction($controller,$action){
-            $controlle="app\\controllers\\{$controller}"; 
-            $controller = new $controller; 
-            if(!method_exists($controller , $action)){
-                throw new \Exception("action does not exsist");
-            } 
+    
+        public function callAction($controller,$action)
+        {
+            $controller = "app\\controllers\\{$controller}";
+            $controller= new $controller;
+            if ( ! method_exists($controller,$action)){
+                throw new \Exception('action not exists');
+            }
             return $controller->$action();
-
         }
+    }
         
-}
