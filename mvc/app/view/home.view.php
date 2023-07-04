@@ -1,4 +1,6 @@
 <?php  require "partials/head.php"?>
+
+
 <h1> home page : our authors</h1>
 <?php  if(!empty($home) ) { ?> 
 
